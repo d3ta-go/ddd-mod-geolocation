@@ -1,2 +1,3 @@
-# ddd-module-template
-DDD Module Template
+# ddd-mod-geolocation
+
+DDD Module: GeoLocation
