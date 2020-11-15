@@ -5,29 +5,30 @@ import (
 	"time"
 
 	domSchema "github.com/d3ta-go/ddd-mod-geolocation/modules/geolocation/domain/schema/country"
+	"github.com/d3ta-go/system/system/handler"
 	"github.com/d3ta-go/system/system/initialize"
 )
 
-func newCountryIndexerSvc(t *testing.T) (*CountryIndexerSvc, error) {
+func newCountryIndexerSvc(t *testing.T) (*CountryIndexerSvc, *handler.Handler, error) {
 	h, err := newHandler(t)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	if err := initialize.OpenAllIndexerConnection(h); err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	r, err := NewCountryIndexerSvc(h)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
-	return r, nil
+	return r, h, nil
 }
 
 func TestCountryIndexerSvc_Methods(t *testing.T) {
-	idx, err := newCountryIndexerSvc(t)
+	idx, _, err := newCountryIndexerSvc(t)
 	if err != nil {
 		t.Errorf("Error while creating CountryIndexerSvc: newCountryIndexerSvc() [%s]", err.Error())
 		return

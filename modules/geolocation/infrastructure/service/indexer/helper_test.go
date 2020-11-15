@@ -1,19 +1,24 @@
 package indexer
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/d3ta-go/system/system/config"
 	"github.com/d3ta-go/system/system/handler"
 	"github.com/d3ta-go/system/system/identity"
+	"github.com/spf13/viper"
 )
 
-func newConfig(t *testing.T) (*config.Config, error) {
-	c, _, err := config.NewConfig("../../../../../conf")
+func newConfig(t *testing.T) (*config.Config, *viper.Viper, error) {
+	c, v, err := config.NewConfig("../../../../../conf")
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
-	return c, nil
+	if !c.CanRunTest() {
+		panic(fmt.Sprintf("Cannot Run Test on env `%s`, allowed: %v", c.Environment.Stage, c.Environment.RunTestEnvironment))
+	}
+	return c, v, nil
 }
 
 func newHandler(t *testing.T) (*handler.Handler, error) {
@@ -22,11 +27,20 @@ func newHandler(t *testing.T) (*handler.Handler, error) {
 		return nil, err
 	}
 
-	c, err := newConfig(t)
+	c, v, err := newConfig(t)
 	if err != nil {
 		return nil, err
 	}
 	h.SetDefaultConfig(c)
+	h.SetViper("config", v)
+
+	// viper for test-data
+	viperTest := viper.New()
+	viperTest.SetConfigType("yaml")
+	viperTest.SetConfigName("test-data")
+	viperTest.AddConfigPath("../../../../../conf/data")
+	viperTest.ReadInConfig()
+	h.SetViper("test-data", viperTest)
 
 	return h, nil
 }

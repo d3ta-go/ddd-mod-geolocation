@@ -1,0 +1,53 @@
+---
+# Test Data
+test-data:
+  geo-location:
+    country:
+      app-layer:
+        service:
+          add:
+            code: XX
+            iso2-code: XX
+            iso3-code: X3X
+            name: XX Country
+            who-region: WPRO
+          delete:
+            code: XX
+          get-detail:
+            code: ID
+          refresh-indexer:
+            processing-type: SYNC
+          search-indexer:
+            name: IN
+          update:
+            code: XX
+            id: 251
+            iso2-code: X2
+            iso3-code: X32
+            name: XX Country Updated
+            who-region: WPRO
+      infra-layer:
+        service:
+          indexer:
+            refresh-indexer:
+              processing-type: SYNC
+            search-indexer:
+              name: IN
+          rdbms:
+            add:
+              code: XX
+              iso2-code: XX
+              iso3-code: X3X
+              name: XX Country
+              who-region: WPRO
+            delete:
+              code: XX
+            get-detail:
+              code: ID
+            update:
+              code: XX
+              id: 252
+              iso2-code: X2
+              iso3-code: X32
+              name: XX Country Updated
+              who-region: WPRO
