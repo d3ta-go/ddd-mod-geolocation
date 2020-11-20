@@ -6,13 +6,13 @@ test-data:
       app-layer:
         service:
           add:
-            code: XX
-            iso2-code: XX
+            code: X1
+            iso2-code: X1
             iso3-code: X3X
-            name: XX Country
+            name: X1 Country
             who-region: WPRO
           delete:
-            code: XX
+            code: X1
           get-detail:
             code: ID
           refresh-indexer:
@@ -20,11 +20,11 @@ test-data:
           search-indexer:
             name: IN
           update:
-            code: XX
+            code: X1
             id: 251
-            iso2-code: X2
-            iso3-code: X32
-            name: XX Country Updated
+            iso2-code: X1
+            iso3-code: X31
+            name: X1 Country Updated
             who-region: WPRO
       infra-layer:
         service:
