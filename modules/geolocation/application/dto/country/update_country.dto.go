@@ -12,7 +12,10 @@ type UpdateCountryReqDTO struct {
 	Data *UpdateCountryDataDTO `json:"data"`
 }
 
+// UpdateCountryKeysDTO represent UpdateCountryKeys DTO
 type UpdateCountryKeysDTO domSchema.UpdateCountryKeys
+
+// UpdateCountryDataDTO represent UpdateCountryData DTO
 type UpdateCountryDataDTO domSchema.UpdateCountryData
 
 // UpdateCountryResDTO represent UpdateCountryResDTO
