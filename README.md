@@ -1,4 +1,5 @@
-# ddd-mod-geolocation
+# ddd-mod-geolocation ( [![Go Report Card](https://goreportcard.com/badge/github.com/d3ta-go/ddd-mod-geolocation)](https://goreportcard.com/report/github.com/d3ta-go/ddd-mod-geolocation) )
+
 
 DDD Module: GeoLocation (Supporting Subdomain)
 
